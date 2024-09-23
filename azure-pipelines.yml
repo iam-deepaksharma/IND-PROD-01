@@ -5,9 +5,12 @@ pool:
 
 trigger: none
 steps:
+  - task: TerraformInstaller@1
+    inputs:
+      terraformVersion: 'latest'
   - task: CmdLine@2
     inputs:
       script: |
         echo Write your commands here
         
-        echo Hello world
+        my name is Tiger
