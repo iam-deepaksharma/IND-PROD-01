@@ -1,0 +1,13 @@
+name: prod-pipeline-with-steps
+
+pool: 
+  vmImage = 'ubuntu-latest'
+
+trigger: none
+steps:
+  - task: CmdLine@2
+    inputs:
+      script: |
+        echo Write your commands here
+        
+        echo Hello world
