@@ -1,7 +1,7 @@
 name: prod-pipeline-with-steps
 
 pool: 
-  vmImage = 'ubuntu-latest'
+  vmImage: 'ubuntu-latest'
 
 trigger: none
 steps:
