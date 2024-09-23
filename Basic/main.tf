@@ -8,9 +8,8 @@ terraform {
 }
 
 provider "azurerm" {
-  features {
-
-  }
+  features {}
+  subscription_id = "ac30d9b8-34e5-4948-80d1-d9c571735ea3"
 }
 
 resource "azurerm_resource_group" "block3" {
@@ -20,7 +19,7 @@ resource "azurerm_resource_group" "block3" {
 
 resource "azurerm_storage_account" "block4" {
   depends_on               = [azurerm_resource_group.block3]
-  name                     = "storage-lab"
+  name                     = "prodstorageind"
   resource_group_name      = azurerm_resource_group.block3.name
   location                 = azurerm_resource_group.block3.location
   account_tier             = "Standard"
