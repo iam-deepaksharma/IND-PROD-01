@@ -11,9 +11,3 @@ steps:
         echo Write your commands here
         
         echo Hello world
-  - task: CmdLine@2
-    inputs:
-      script: |
-        echo Write your commands here
-        
-        my name is Tiger
