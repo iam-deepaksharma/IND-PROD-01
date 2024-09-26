@@ -18,3 +18,7 @@ resource "azurerm_storage_container" "containerblock" {
   storage_account_name  = azurerm_storage_account.storageblock.name
   container_access_type = "private"
 }
+resource "azurerm_resource_group" "rgblock1" {
+  name     = "rgbydeepak1"
+  location = "centralindia"
+}
