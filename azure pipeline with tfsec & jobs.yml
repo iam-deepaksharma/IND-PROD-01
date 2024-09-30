@@ -8,6 +8,8 @@ jobs:
     - task: tfsec@1
       inputs:
         version: 'v1.26.0'
+  - job: Terraform
+    steps:
     - task: TerraformInstaller@1
       inputs:
         terraformVersion: 'latest'
@@ -20,3 +22,15 @@ jobs:
         backendAzureRmStorageAccountName: 'prodstorageind'
         backendAzureRmContainerName: 'remote'
         backendAzureRmKey: 'terraform.tfstate'
+    - task: TerraformTaskV4@4
+      inputs:
+        provider: 'azurerm'
+        command: 'plan'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/Basic/'
+        environmentServiceNameAzureRM: 'prod-connection'
+    - task: TerraformTaskV4@4
+      inputs:
+        provider: 'azurerm'
+        command: 'apply'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/Basic/'
+        environmentServiceNameAzureRM: 'prod-connection'
