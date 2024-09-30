@@ -1,6 +1,6 @@
 name: Pipeline with job
 pool:
- vmImage= "ubuntu-latest"
+  vmImage: ubuntu-latest
 trigger: none
 jobs:
   - job: codescan
@@ -11,4 +11,12 @@ jobs:
     - task: TerraformInstaller@1
       inputs:
         terraformVersion: 'latest'
-    
+    - task: TerraformTaskV4@4
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        backendServiceArm: 'prod-connection'
+        backendAzureRmResourceGroupName: 'rgbydeepak'
+        backendAzureRmStorageAccountName: 'prodstorageind'
+        backendAzureRmContainerName: 'remote'
+        backendAzureRmKey: 'terraform.tfstate'
