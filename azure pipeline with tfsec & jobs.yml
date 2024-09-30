@@ -9,6 +9,7 @@ jobs:
       inputs:
         version: 'v1.26.0'
   - job: Terraform
+    dependsOn: codescan
     steps:
     - task: TerraformInstaller@1
       inputs:
