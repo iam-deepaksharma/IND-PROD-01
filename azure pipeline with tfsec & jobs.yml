@@ -1,0 +1,14 @@
+name: Pipeline with job
+pool:
+ vmImage= "ubuntu-latest"
+trigger: none
+jobs:
+  - job: codescan
+    steps:
+    - task: tfsec@1
+      inputs:
+        version: 'v1.26.0'
+    - task: TerraformInstaller@1
+      inputs:
+        terraformVersion: 'latest'
+    
