@@ -27,11 +27,11 @@ jobs:
       inputs:
         provider: 'azurerm'
         command: 'plan'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/Basic/'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/Prod/'
         environmentServiceNameAzureRM: 'prod-connection'
     - task: TerraformTaskV4@4
       inputs:
         provider: 'azurerm'
         command: 'apply'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/Basic/'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/Prod/'
         environmentServiceNameAzureRM: 'prod-connection'
