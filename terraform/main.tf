@@ -3,10 +3,10 @@ resource "azurerm_resource_group" "rgblock" {
   location = "centralindia"
 }
 
-resource "azurerm_resource_group" "rgblock1" {
-  name     = "prod-rg1"
-  location = "centralindia"
-}
+# resource "azurerm_resource_group" "rgblock1" {
+#   name     = "prod-rg1"
+#   location = "centralindia"
+# }
 
 resource "azurerm_storage_account" "storageblock" {
     depends_on = [ azurerm_resource_group.rgblock ]
