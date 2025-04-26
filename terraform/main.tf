@@ -9,7 +9,7 @@ resource "azurerm_resource_group" "rgblock" {
 # }
 
 resource "azurerm_storage_account" "storageblock" {
-    depends_on = [ azurerm_resource_group.rgblock ]
+  depends_on               = [azurerm_resource_group.rgblock]
   name                     = "trendulkarstorage"
   resource_group_name      = azurerm_resource_group.rgblock.name
   location                 = azurerm_resource_group.rgblock.location
@@ -18,14 +18,14 @@ resource "azurerm_storage_account" "storageblock" {
 }
 
 resource "azurerm_storage_container" "containerblock" {
-    depends_on = [ azurerm_storage_account.storageblock ]
+  depends_on            = [azurerm_storage_account.storageblock]
   name                  = "prodcontainer"
-  storage_account_name  = azurerm_storage_account.storageblock.name
+  storage_account_id = azurerm_storage_account.storageblock.id
   container_access_type = "private"
 }
 
 resource "azurerm_storage_blob" "blobblock" {
-    depends_on = [ azurerm_storage_container.containerblock ]
+  depends_on             = [azurerm_storage_container.containerblock]
   name                   = "prodblob"
   storage_account_name   = azurerm_storage_account.storageblock.name
   storage_container_name = azurerm_storage_container.containerblock.name
